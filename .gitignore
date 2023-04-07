@@ -1,3 +1,11 @@
+#Keys
+Key/
+
+#data
+*.csv
+*.csv.zip
+*.parquet
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
