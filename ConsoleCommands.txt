@@ -1,0 +1,5 @@
+#activate environment
+conda activate zoomcamp
+
+# start prefect engine
+prefect orion start

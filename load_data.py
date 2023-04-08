@@ -1,12 +1,10 @@
 from google.cloud import bigquery
 from google.cloud import storage
+from prefect import flow, task
+from prefect_gcp.cloud_storage import GcsBucket
+from prefect.tasks import task_input_hash
 
-#os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="Key/de-trainig-bq-key.json"
-
-client = bigquery.Client()
-dataset_ref = client.dataset('ncaa_basketball', project='bigquery-public-data')
-
-
+@flow
 def main(): 
     #read_from_bqtable
     ncaa_dataset = client.get_dataset(dataset_ref)
@@ -15,9 +13,10 @@ def main():
         write_data_to_gcp(x.table_id)
         write_gcp_to_bigqeury(x.table_id)
     
+@task
 def write_data_to_gcp(table_name):
     query = 'SELECT * FROM `bigquery-public-data.ncaa_basketball.' + table_name + '`'
-    print(query)
+    print('Loading to gcp table: ' + table_name)
     client = bigquery.Client()    
     storage_client = storage.Client()
     
@@ -31,8 +30,8 @@ def write_data_to_gcp(table_name):
     query_job.result().to_dataframe().to_parquet(destination_blob.open('wb'), index=False) 
 
 
+@task
 def write_gcp_to_bigqeury(table_name):
-
 
     clientw = bigquery.Client()
 
@@ -54,8 +53,7 @@ def write_gcp_to_bigqeury(table_name):
     print("Loaded {} rows.".format(destination_table.num_rows))
 
 
-#read_from_bqtable()
-
-#gcp_to_bigqeury()
 if __name__ == '__main__':
+    client = bigquery.Client()
+    dataset_ref = client.dataset('ncaa_basketball', project='bigquery-public-data')
     main() 
