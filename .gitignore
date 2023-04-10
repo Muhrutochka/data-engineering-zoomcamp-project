@@ -1,3 +1,5 @@
+ConsoleCommands.txt
+.vscode/
 #dbt
 target/
 dbt_modules/
