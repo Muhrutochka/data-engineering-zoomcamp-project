@@ -12,5 +12,7 @@ SELECT
   assists,
   turnovers
 FROM
-  `de-trainig.de_project.mbb_players_games_sr` as p
-  inner join `de_project.mbb_teams` as t on team_id=id
+   {{ ref('mbb_players_games_sr') }} 
+  
+  inner join  {{ ref('mbb_teams') }} 
+  on team_id=id

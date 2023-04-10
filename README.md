@@ -1,7 +1,6 @@
-# data-engineering-zoomcamp-project
+# Data engineering zoomcamp project - NCAA Basketball Data Analysis
 
-# NCAA Basketball Data Analysis
-
+## Overview
 This project analyzes NCAA basketball data using various tools and technologies, including Terraform, Google Cloud Storage (GCS), Google BigQuery, dbt for transformations, Prefect for orchestration, and Power BI for visualization.
 
 ## Background
@@ -13,10 +12,11 @@ The NCAA (National Collegiate Athletic Association) is a nonprofit organization 
 This project uses several technologies to process, transform, and analyze NCAA basketball data. These technologies include:
 
 - **Terraform**: Infrastructure as code tool used to manage the deployment of cloud resources
+- **Python**: Programming language used to load dataset from Google BigQuery open dataset to Google cloud storage
+- **Prefect**: Workflow management tool used to orchestrate data pipelines
 - **Google Cloud Storage (GCS)**: Cloud storage service used to store raw data and transformed data
 - **Google BigQuery**: Cloud-based data warehouse used to query and analyze large datasets
 - **dbt**: Data transformation tool used to clean, transform, and model data for analysis
-- **Prefect**: Workflow management tool used to orchestrate data pipelines
 - **Power BI**: Business intelligence tool used to visualize and explore data
 
 ## Data Sources
@@ -35,6 +35,12 @@ The project follows a typical data pipeline for processing and analyzing data. T
 3. **Data Loading**: The transformed data is loaded into BigQuery for analysis.
 4. **Data Analysis**: SQL queries are used to analyze the data and extract insights.
 5. **Data Visualization**: Power BI is used to create interactive visualizations and dashboards.
+
+## Data Visualization
+
+[Report](https://app.powerbi.com/view?r=eyJrIjoiOTM1YTIxZWQtOGE0Zi00NTdjLWI1NzQtNTgyZmJkMWQ5MTA0IiwidCI6IjQ4MjQxNjNlLTEzZGYtNDRiNC04YjM0LTU4YTNiMTkxOTVlNCJ9) is available in Power BI cloud service by this link (https://app.powerbi.com/view?r=eyJrIjoiOTM1YTIxZWQtOGE0Zi00NTdjLWI1NzQtNTgyZmJkMWQ5MTA0IiwidCI6IjQ4MjQxNjNlLTEzZGYtNDRiNC04YjM0LTU4YTNiMTkxOTVlNCJ9) 
+
+![Alt text](/images/ncaa_report.png "Dashboard overview")
 
 ## Getting Started
 

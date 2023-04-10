@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: mbb_teams_games_sr
+    # database: de-trainig
+    # schema: de_project
+    tables:
+      - name: mbb_teams_games_sr
+        # identifier: de-trainig.de_project.mbb_teams_games_sr
+        identifier: mbb_teams_games_sr
+        adapter: bigquery
+        # columns:
+        #   - name: scheduled_date
+        #     description: "Date of the game"
+        #     tests:
+        #       - not_null
+        #   - name: team_id
+        #     description: "Team ID"
+        #     tests:
+        #       - not_null
+        #   - name: points
+        #     description: "Points scored in the game"
+        #     tests:
+        #       - not_null
+        #   - name: rebounds
+        #     description: "Number of rebounds in the game"
+        #     tests:
+        #       - not_null
+        #   - name: assists
+        #     description: "Number of assists in the game"
+        #     tests:
+        #       - not_null
