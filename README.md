@@ -30,7 +30,7 @@ The project uses NCAA basketball data from several sources, including:
 
 The project follows a typical data pipeline for processing and analyzing data. The pipeline consists of the following steps:
 
-1. **Data Collection**: Raw data is collected from NCAA and Sports Reference and stored in GCS.
+1. **Data Collection**: Raw data is collected from BigQuery public NCAA dataset and stored in GCS.
 2. **Data Transformation**: dbt is used to clean, transform, and model the data for analysis.
 3. **Data Loading**: The transformed data is loaded into BigQuery for analysis.
 4. **Data Analysis**: SQL queries are used to analyze the data and extract insights.
@@ -46,14 +46,30 @@ The project follows a typical data pipeline for processing and analyzing data. T
 
 To get started with the project, follow these steps:
 
-1. Clone the repository to your local machine.
-2. Set up a GCS bucket to store raw and transformed data.
-3. Set up a BigQuery dataset to store transformed data.
-4. Install Terraform and Prefect on your local machine.
-5. Deploy the Terraform infrastructure using `terraform apply`.
-6. Register a Prefect agent and start the Prefect server using `prefect server start`.
-7. Run the data pipeline using `prefect run start`.
+1. Create [Google Cloud Platform](https://cloud.google.com/) account. The [Google Cloud SDK](https://cloud.google.com/sdk). OAuth 2.0 for authentication and authorization.
+1. Create project on [Google Cloud Platform](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
+1. Clone the repository to your virtual/local machine.
+1. Install Terraform and Prefect on your machine.
+1. Change project name in variables.tf file.
+1. Deploy the Terraform infrastructure using `terraform apply`. Will create a GCS bucket to store raw and transformed data and BigQuery dataset to store transformed data.
+1. Register a Prefect agent and start the Prefect server using `prefect server start`.
+1. Run the data pipeline using `python ingestion\load_data.py`.
+1. Install dbt, build your models: `dbt run`. This will execute the SQL code in your models and create the corresponding tables/views in your data warehouse.
+1. Use any data visualization tool to biuld data model and dashboard, like Power BI, Tableau, Qlik.
+
 
 ## Conclusion
 
 This project demonstrates how various tools and technologies can be used to process, transform, and analyze NCAA basketball data. The pipeline can be extended to include additional data sources, transformations, and analyses. The insights gained from this analysis can inform decision-making in the world of college basketball.
+
+## Thank You to DataTalksClub for Data Engineering Zoomcamp Training
+
+I would like to express my sincere gratitude to [DataTalksClub]( http://datatalks.club) for organizing and providing the [Data Engineering Zoomcamp training](https://github.com/DataTalksClub/data-engineering-zoomcamp). The training has been an excellent opportunity for me to learn and improve my skills in data engineering.
+
+The course material was well-structured and presented in an easy-to-understand format. The instructors were knowledgeable and supportive, providing valuable insights and answering all our questions promptly.
+
+I have gained a deeper understanding of the data engineering concepts and techniques, including data modeling, ETL processes, and database management. The hands-on exercises and projects were particularly helpful in reinforcing my learning and providing practical experience.
+
+Overall, I feel much more confident in my abilities as a data engineer, thanks to the Data Engineering Zoomcamp training. I would highly recommend this training to anyone who is interested in learning about data engineering.
+
+Once again, thank you to DataTalksClub for providing this fantastic training opportunity!
